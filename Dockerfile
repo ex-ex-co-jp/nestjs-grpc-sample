@@ -1,6 +1,7 @@
 FROM node:18.16-alpine3.18
 
-RUN yarn global add @nestjs/cli
+RUN yarn global add @nestjs/cli \
+  && apk add protobuf
 
 WORKDIR /app
 
