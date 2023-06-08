@@ -79,3 +79,20 @@
 | 3       | 3          | read             |
 +---------+------------+------------------+
 ```
+
+# 環境の立ち上げ方
+
+1. `docker-compose up --build`
+2. `docker-compose exec api sh` (tty: tru にしているので sh に入って操作しましょう)
+
+## 開発サーバー
+
+```
+# yarn start:dev
+```
+
+## Sample Proto の型生成
+
+```
+# yarn codegen
+```
