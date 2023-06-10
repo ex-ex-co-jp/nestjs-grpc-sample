@@ -9,3 +9,17 @@ services:
       - 3000:3000
     tty: true
     command: sh
+  db:
+    image: postgres:13.4
+    platform: linux/amd64
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: sample
+      TZ: 'Asia/Tokyo'
+    volumes:
+      - postgres_volume:/var/lib/postgresql
+volumes:
+  postgres_volume:
