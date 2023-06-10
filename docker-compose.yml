@@ -10,14 +10,16 @@ services:
     tty: true
     command: sh
   db:
-    image: mysql:8.0.28
+    image: postgres:13.4
     platform: linux/amd64
-    container_name: mysql-container
     ports:
-      - '3306:3306'
+      - 5432:5432
     environment:
-      MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: sample
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: sample
       TZ: 'Asia/Tokyo'
     volumes:
-      - ./mysql/data-volume:/var/lib/mysql
+      - postgres_volume:/var/lib/postgresql
+volumes:
+  postgres_volume:
