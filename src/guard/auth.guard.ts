@@ -18,6 +18,7 @@ export class AuthGuard implements CanActivate {
   ) {}
 
   async canActivate(context: ExecutionContext): Promise<boolean> {
+    console.log('-- AuthGuard --');
     const isPublic = this.reflector.getAllAndOverride<boolean>('public', [
       context.getHandler(),
       context.getClass(),
@@ -25,9 +26,10 @@ export class AuthGuard implements CanActivate {
     if (isPublic) {
       return true;
     }
-    const request: Metadata = context.getArgByIndex(1);
+    const request = context.switchToHttp().getRequest();
+    const meta: Metadata = context.getArgByIndex(1);
     const token = this.extractTokenFromHeader(
-      request.get('Authorization').toString(),
+      meta.get('Authorization').toString(),
     );
     if (!token) {
       throw new UnauthorizedException();
@@ -40,10 +42,8 @@ export class AuthGuard implements CanActivate {
       const role = await this.prisma.userRoles.findFirst({
         where: { user_id: user.id },
       });
-      console.log(role);
       if (role) {
-        request.add('user_id', role.user_id.toString());
-        request.add('role_id', role.role_id.toString());
+        request.user = { id: role.user_id, role: role.id };
       }
     } catch {
       throw new UnauthorizedException();

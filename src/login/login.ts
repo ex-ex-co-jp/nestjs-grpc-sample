@@ -3,7 +3,7 @@ import { Metadata } from "@grpc/grpc-js";
 import { GrpcMethod, GrpcStreamMethod } from "@nestjs/microservices";
 import { Observable } from "rxjs";
 
-export const protobufPackage = "sample";
+export const protobufPackage = "login";
 
 export interface LoginRequest {
   username: string;
@@ -14,7 +14,7 @@ export interface LoginResponse {
   token: string;
 }
 
-export const SAMPLE_PACKAGE_NAME = "sample";
+export const LOGIN_PACKAGE_NAME = "login";
 
 export interface LoginServiceClient {
   login(request: LoginRequest, metadata?: Metadata): Observable<LoginResponse>;

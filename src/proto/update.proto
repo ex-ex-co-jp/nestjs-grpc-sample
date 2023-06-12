@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package update;
+
+service UpdateService {
+  rpc UpdateResource (UpdateRequest) returns (UpdateResponse) {}
+}
+
+// TBD 命名は後で変えるかも
+message UpdateRequest {
+  int32 id = 1;
+  string name = 2;
+}
+
+message UpdateResponse {
+  int32 id = 1;
+  string name = 2;
+}
