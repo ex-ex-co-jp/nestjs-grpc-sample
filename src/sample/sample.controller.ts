@@ -1,19 +1,23 @@
-import { Controller } from '@nestjs/common';
+import { Controller, UseGuards } from '@nestjs/common';
 import { GrpcMethod } from '@nestjs/microservices';
-import { Sample, SampleById } from '@/proto/sample';
+import { Sample, SampleById } from '@/sample/sample';
 import { SampleService } from './sample.service';
+import { Metadata } from '@grpc/grpc-js';
+import { AuthGuard } from '@/guard/auth.guard';
 @Controller()
 export class SampleController {
-  constructor(private readonly sampleService: SampleService,) {}
+  constructor(private readonly service: SampleService) {}
   @GrpcMethod('SamplesService', 'FindOne')
-  async findOne(data: SampleById): Promise<Sample> {
-    const items = [
-      { id: 1, name: 'John' },
-      { id: 2, name: 'Doe' },
-    ] as Sample[];
-    const user = await this.sampleService.user({ id: data.id });
-    console.log({ user });
-    const filteredItems = items.filter((item) => item.id === data.id);
-    return filteredItems[0];
+  @UseGuards(AuthGuard)
+  async findOne(data: SampleById, metadata?: Metadata): Promise<Sample> {
+    console.log(data);
+    console.log(metadata);
+    console.log(metadata.get('user')[0]);
+    console.log(metadata.get('role'));
+    const user = await this.service.user({ id: data.id });
+    return {
+      id: user.id,
+      name: user.name,
+    };
   }
 }
