@@ -21,13 +21,11 @@ model Role {
   id            Int             @id @default(autoincrement())
   name          String
   UserRoles     UserRoles[]
-  role_resources RoleResources[]
 }
 
 model Resource {
   id            Int             @id @default(autoincrement())
   name          String
-  role_resources RoleResources[]
 }
 
 model UserRoles {
@@ -36,12 +34,4 @@ model UserRoles {
   user    User @relation(fields: [user_id], references: [id])
   role    Role @relation(fields: [role_id], references: [id])
   role_id Int
-}
-
-model RoleResources {
-  id          Int      @id @default(autoincrement())
-  role        Role     @relation(fields: [role_id], references: [id])
-  role_id     Int
-  resource    Resource @relation(fields: [resource_id], references: [id])
-  resource_id Int
 }

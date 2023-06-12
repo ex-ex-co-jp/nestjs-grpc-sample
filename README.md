@@ -10,13 +10,10 @@
 
 # 実装する API
 
-`CreateResource` → Resource を作成する
-
-`ReadResource` → Resource を取得する
-
-`UpdateResource` → Resource を更新する
-
-`DeleteResource` → Resource を削除する
+`CreateResource` → Resource作成：admin
+`ReadResource` → Resource取得：all
+`UpdateResource` → Resource更新：super_user
+`DeleteResource` → Resource削除：admin、super_user
 
 # 行わないこと
 
@@ -67,17 +64,6 @@
 | 3  | resource3       |
 +----+-----------------+
 
-ロールリソーステーブル (RoleResources):
-+---------+------------+------------------+
-| role_id | resource_id | permissions     |
-+---------+------------+------------------+
-| 2       | 1          | read, write      |
-| 2       | 2          | read, write      |
-| 2       | 3          | read, write      |
-| 3       | 1          | read             |
-| 3       | 2          | read             |
-| 3       | 3          | read             |
-+---------+------------+------------------+
 ```
 
 # 環境の立ち上げ方
