@@ -20,6 +20,7 @@
     "test:e2e": "jest --config ./test/jest-e2e.json",
     "codegen": " protoc --ts_proto_opt=nestJs=true --plugin=./node_modules/.bin/protoc-gen-ts_proto --ts_proto_out=. ./src/proto/sample.proto",
     "seed": "prisma migrate dev && ts-node prisma/seed.ts"
+    "codegen2": "protoc --ts_proto_opt=nestJs=true --plugin=./node_modules/.bin/protoc-gen-ts_proto --ts_proto_out=src/service --ts_proto_opt=nestJs=true --ts_proto_opt=outputClientImple=false --ts_proto_opt=addGrpcMetadata=true -Isrc/proto src/proto/${npm_config_name}.proto"
   },
   "dependencies": {
     "@grpc/grpc-js": "^1.8.15",

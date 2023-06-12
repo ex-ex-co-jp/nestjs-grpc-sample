@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package sample;
+
+service Samples2Service {
+  rpc FindOne (Sample2ById) returns (Sample2) {}
+  rpc FindTwo (Sample2ById) returns (Sample2) {}
+}
+
+message Sample2ById {
+  int32 id = 1;
+}
+
+message Sample2 {
+  int32 id = 1;
+  string name = 2;
+}

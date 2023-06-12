@@ -9,6 +9,7 @@ services:
       - 3000:3000
     tty: true
     command: sh
+
   db:
     image: postgres:13.4
     platform: linux/amd64
