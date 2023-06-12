@@ -11,7 +11,9 @@ export class SampleController {
   @UseGuards(AuthGuard)
   async findOne(data: SampleById, metadata?: Metadata): Promise<Sample> {
     console.log(data);
+    console.log(metadata);
     console.log(metadata.get('user'));
+    console.log(metadata.get('role'));
     const user = await this.service.user({ id: data.id });
     return {
       id: user.id,

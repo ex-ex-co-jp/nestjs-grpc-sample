@@ -34,21 +34,17 @@ export class AuthGuard implements CanActivate {
     }
     let user = null;
     try {
-      console.log(token);
       user = await this.jwtService.verifyAsync(token, {
         secret: 'secret',
       });
-      console.log(user);
       request.add('user', user);
     } catch {
       throw new UnauthorizedException();
     }
     try {
-      console.log(user);
       const role = await this.prisma.roleResources.findFirst({
         where: { id: user.id },
       });
-      console.log(role);
       if (role) {
         request.add('role_id', role.role_id.toString());
       }
