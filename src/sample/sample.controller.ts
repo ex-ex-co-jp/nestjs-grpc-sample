@@ -1,7 +1,7 @@
 import { Controller, UseGuards } from '@nestjs/common';
 import { GrpcMethod } from '@nestjs/microservices';
 import { Sample, SampleById } from '@/sample/sample';
-import { SampleService } from './sample.service';
+import { SampleService } from '@/sample/sample.service';
 import { Metadata } from '@grpc/grpc-js';
 import { AuthGuard } from '@/guard/auth.guard';
 @Controller()

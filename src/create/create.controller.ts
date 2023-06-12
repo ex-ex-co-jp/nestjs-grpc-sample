@@ -1,7 +1,7 @@
 import { Controller } from '@nestjs/common';
 import { GrpcMethod } from '@nestjs/microservices';
-import { CreateRequest, CreateResponse } from '@/proto/create';
-import { CreateService } from './create.service';
+import { CreateRequest, CreateResponse } from '@/create/create';
+import { CreateService } from '@/create/create.service';
 @Controller()
 export class CreateController {
   constructor(private readonly createService: CreateService,) {}

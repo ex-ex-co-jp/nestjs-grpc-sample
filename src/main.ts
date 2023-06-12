@@ -15,14 +15,10 @@ async function bootstrap() {
           'read',
         ],
         protoPath: [
-          join(__dirname, 'proto/sample.proto'),
-          join(__dirname, 'proto/create.proto'),
-          join(__dirname, 'proto/read.proto'),
-        ],
-        package: 'sample',
-        protoPath: [
           join(__dirname, '../proto/sample.proto'),
           join(__dirname, '../proto/login.proto'),
+          join(__dirname, '../proto/create.proto'),
+          join(__dirname, '../proto/read.proto'),
         ],
         url: '0.0.0.0:3000',
       },

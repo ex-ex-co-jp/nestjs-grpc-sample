@@ -1,7 +1,7 @@
 import { Controller } from '@nestjs/common';
 import { GrpcMethod } from '@nestjs/microservices';
-import { ReadRequest, ReadResponse } from '@/proto/read';
-import { ReadService } from './read.service';
+import { ReadRequest, ReadResponse } from '@/read/read';
+import { ReadService } from '@/read/read.service';
 @Controller()
 export class ReadController {
   constructor(private readonly readService: ReadService,) {}
