@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package read;
+
+service ReadService {
+  rpc ReadResource (ReadRequest) returns (ReadResponse) {}
+}
+
+// TBD 命名は後で変えるかも
+message ReadRequest {
+  // TODO 権限を判断する必要があるので、roleが分かるものを渡してもらう？
+  int32 id = 1;
+  // string name = 1;
+}
+
+message ReadResponse {
+  // int32 id = 1;
+  string name = 2;
+}
