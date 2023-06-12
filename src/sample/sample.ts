@@ -1,4 +1,5 @@
 /* eslint-disable */
+import { Metadata } from "@grpc/grpc-js";
 import { GrpcMethod, GrpcStreamMethod } from "@nestjs/microservices";
 import { Observable } from "rxjs";
 
@@ -16,11 +17,11 @@ export interface Sample {
 export const SAMPLE_PACKAGE_NAME = "sample";
 
 export interface SamplesServiceClient {
-  findOne(request: SampleById): Observable<Sample>;
+  findOne(request: SampleById, metadata?: Metadata): Observable<Sample>;
 }
 
 export interface SamplesServiceController {
-  findOne(request: SampleById): Promise<Sample> | Observable<Sample> | Sample;
+  findOne(request: SampleById, metadata?: Metadata): Promise<Sample> | Observable<Sample> | Sample;
 }
 
 export function SamplesServiceControllerMethods() {
