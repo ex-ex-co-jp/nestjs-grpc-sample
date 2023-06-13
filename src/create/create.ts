@@ -4,9 +4,7 @@ import { Observable } from "rxjs";
 
 export const protobufPackage = "create";
 
-/** TBD 命名は後で変えるかも */
 export interface CreateRequest {
-  /** int32 id = 1; */
   name: string;
 }
 

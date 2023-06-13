@@ -7,7 +7,7 @@ import { AdminAndSuperGuard } from '@/guard/adminAndSuper.guard';
 export class DeleteController {
   constructor(private readonly service: DeleteService) {}
   @UseGuards(AdminAndSuperGuard)
-  @GrpcMethod('CreateService', 'CreateResource')
+  @GrpcMethod('DeleteService', 'DeleteResource')
   async createResource(data: DeleteRequest): Promise<DeleteResponse> {
     await this.service.deleteRoleResource(data.id);
     return { message: 'success' } as DeleteResponse;

@@ -6,9 +6,7 @@ service CreateService {
   rpc CreateResource (CreateRequest) returns (CreateResponse) {}
 }
 
-// TBD 命名は後で変えるかも
 message CreateRequest {
-  // int32 id = 1;
   string name = 1;
 }
 

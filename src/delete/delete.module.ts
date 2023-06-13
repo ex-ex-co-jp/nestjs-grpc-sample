@@ -1,11 +1,11 @@
 import { Module } from '@nestjs/common';
-import { CreateController } from '@/create/create.controller';
-import { CreateService } from '@/create/create.service';
+import { DeleteController } from '@/delete/delete.controller';
+import { DeleteService } from '@/delete/delete.service';
 import { PrismaService } from '@/service/prisma.service';
 import { JwtService } from '@nestjs/jwt';
 @Module({
   imports: [],
-  controllers: [CreateController],
-  providers: [CreateService, PrismaService, JwtService],
+  controllers: [DeleteController],
+  providers: [DeleteService, PrismaService, JwtService],
 })
 export class DeleteModule {}

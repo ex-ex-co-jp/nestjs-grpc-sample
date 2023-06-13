@@ -4,14 +4,11 @@ import { Observable } from "rxjs";
 
 export const protobufPackage = "read";
 
-/** TBD 命名は後で変えるかも */
 export interface ReadRequest {
-  /** TODO 権限を判断する必要があるので、roleが分かるものを渡してもらう？ */
   id: number;
 }
 
 export interface ReadResponse {
-  /** int32 id = 1; */
   name: string;
 }
 

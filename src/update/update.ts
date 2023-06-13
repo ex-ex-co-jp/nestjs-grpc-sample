@@ -5,7 +5,6 @@ import { Observable } from "rxjs";
 
 export const protobufPackage = "update";
 
-/** TBD 命名は後で変えるかも */
 export interface UpdateRequest {
   id: number;
   name: string;
