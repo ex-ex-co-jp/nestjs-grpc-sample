@@ -15,10 +15,6 @@
 `UpdateResource` → Resource更新：super_user
 `DeleteResource` → Resource削除：admin、super_user
 
-# 行わないこと
-
-- 認証
-
 # 設計
 
 ## DB 設計及び実データ
@@ -77,8 +73,18 @@
 # yarn start:dev
 ```
 
-## Sample Proto の型生成
+## Proto の型生成
 
 ```
-# yarn codegen
+# npm run codegen --name="{file_name}"
+```
+
+## 確認方法
+bloom gRPCでloginで返ってきたtokenをそれぞれのAPIのメタデータに貼り付けて実行すると認証処理が走る
+```
+{
+    "X-API-Version": "1",
+    "X-AdvertizerId": "2",
+    "Authorization": "Bearer {ここをログインで返ってくるtoken}"
+}
 ```
