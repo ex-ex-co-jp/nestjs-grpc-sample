@@ -40,10 +40,12 @@ export class AuthGuard implements CanActivate {
         secret: 'secret',
       });
       const role = await this.prisma.userRoles.findFirst({
-        where: { user_id: user.id },
+        where: { user_id: user.userId },
       });
       if (role) {
-        request.user = { id: role.user_id, role: role.id };
+        console.log('user:'+ role.user_id);
+        console.log('role:'+ role.role_id);
+        request.user = { id: role.user_id, role: role.role_id };
       }
     } catch {
       throw new UnauthorizedException();

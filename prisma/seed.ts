@@ -42,11 +42,11 @@ async function main() {
   });
   await prisma.user.upsert({
     where: {
-      id: 1,
+      id: 2,
     },
     update: {},
     create: {
-      name: 'admin1',
+      name: 'admin2',
       password: 'password',
     },
   });
@@ -88,12 +88,12 @@ async function main() {
     update: {},
     create: {
       user_id: 1,
-      role_id: 2,
+      role_id: 1,
     },
   });
   await prisma.userRoles.upsert({
     where: {
-      id: 1,
+      id: 2,
     },
     update: {},
     create: {
@@ -103,7 +103,7 @@ async function main() {
   });
   await prisma.userRoles.upsert({
     where: {
-      id: 1,
+      id: 3,
     },
     update: {},
     create: {
@@ -113,7 +113,7 @@ async function main() {
   });
   await prisma.userRoles.upsert({
     where: {
-      id: 1,
+      id: 4,
     },
     update: {},
     create: {
@@ -123,7 +123,7 @@ async function main() {
   });
   await prisma.userRoles.upsert({
     where: {
-      id: 1,
+      id: 5,
     },
     update: {},
     create: {
